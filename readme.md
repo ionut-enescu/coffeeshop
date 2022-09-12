@@ -7,7 +7,7 @@ The CoffeeShop API v1 reads from a .csv file all the coffeeshops and displays th
 Usage examples:
 -
 - http://localhost:9090/coffeeshop/api/v1/nearme/45.5/47.5
-- http://localhost:9090/coffeeshop/api/v1/nearme/-48.545/49.6879
+- http://localhost:9090/coffeeshop/api/v1/nearme/-48.545/-49.6879
 - http://localhost:9090/coffeeshop/api/v1/coffeeshops
 
 Entities:
@@ -18,7 +18,7 @@ Entities:
 
 Nearby CoffeeShops algorithm:
 - 
-- In the absence of an actual database, a .csv file serves as the source of information, containing all CoffeeShops which are indexed by name, longitude, latitude. The file is assumed to contain completely unsorted data, therefore no partial reads could help improve performance. For demo purposes, two randomized sets have been added consisting of 100k pairs of lat/lon data each, representing the [-50.0, -45.0] and [45.0, 55.0] coordinates intervals.
+- In the absence of an actual database, a .csv file serves as the source of information, containing all CoffeeShops which are indexed by name, longitude, latitude. The file is assumed to contain completely unsorted data, therefore no partial reads could help improve performance. For demo purposes, two randomized sets have been added consisting of 100k pairs of lat/lon data each, representing the [-50.0, -45.0] and [45.0, 50.0] coordinates intervals.
 
 - first, a filtering by a tuneable tolerance (default: 0.05°) to given coordinates is performed, to avoid extra calculation on unnecesary CoffeeShop entries. Then, the filtered list is furthermore refined by comparing it to a tuneable distance (default: 5km).
 Results are returned ordered by proximity to given initial coordinates.
